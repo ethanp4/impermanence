@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bi4yoxtv7fpe8"]
+
+[ext_resource type="Script" uid="uid://crmawx11217v8" path="res://characters/hook_controller.gd" id="1_5c2x7"]
+[ext_resource type="Texture2D" uid="uid://cvrequyg5qty4" path="res://assets/Chain.png" id="2_5c2x7"]
+
+[sub_resource type="Gradient" id="Gradient_5c2x7"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.29508197, 0.602459, 0.8278689)
+colors = PackedColorArray(0, 0, 0, 1, 0.32470733, 0.28155068, 0.16780634, 1, 0.3737357, 0.323624, 0.18133937, 1, 0.6826626, 0.5834738, 0.12523624, 1)
+
+[node name="HookController" type="Node2D" unique_id=443857655]
+script = ExtResource("1_5c2x7")
+
+[node name="Hook" type="RayCast2D" parent="." unique_id=1260750996]
+target_position = Vector2(800, 0)
+
+[node name="Rope" type="Line2D" parent="." unique_id=2059163426]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 0)
+width = 32.0
+default_color = Color(0.47714025, 0.33689758, 0.10920233, 1)
+gradient = SubResource("Gradient_5c2x7")
+texture = ExtResource("2_5c2x7")
+texture_mode = 1
+antialiased = true
