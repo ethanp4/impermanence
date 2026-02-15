@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2vbbgvit8dq1"]
+
+[ext_resource type="Script" uid="uid://bjr71sv752n4m" path="res://controllers/limits_manager.gd" id="1_uar5x"]
+
+[node name="LimitsManager" type="Node" unique_id=1015552723]
+script = ExtResource("1_uar5x")
