@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://dae01hy6vt3wf"]
 
+[ext_resource type="PackedScene" uid="uid://7en60bs72j2r" path="res://ui/LimitsUI.tscn" id="1_8etgp"]
 [ext_resource type="PackedScene" uid="uid://b4ca57qxjb42u" path="res://characters/player.tscn" id="1_g3ky8"]
+[ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="1_x8peg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ky8"]
 size = Vector2(126, 18)
 
 [node name="Dev" type="Node2D" unique_id=733197858]
+
+[node name="LimitsManager" parent="." unique_id=1015552723 instance=ExtResource("1_x8peg")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=171824418]
+
+[node name="LimitsUi" parent="CanvasLayer" unique_id=772122257 instance=ExtResource("1_8etgp")]
 
 [node name="PlayerModel" parent="." unique_id=1740804725 instance=ExtResource("1_g3ky8")]
 position = Vector2(450, 275)
