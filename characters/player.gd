@@ -6,13 +6,12 @@ const ACCELERATION = 0.1
 const DECELERATION = 0.1
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var hc := $HookController2
+@onready var hc := $HookController2 #this is hard coded.. HORRIBLE
 
+@onready var limits_manager: Node = $"../LimitsManager" #SAME WITH THIS
 
-var limits_manager: Node
-
-func _ready() -> void:
-	limits_manager = ManagerManager.limits_manager
+#func _ready() -> void:
+	#limits_manager = ManagerManager.limits_manager
 	
 func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
@@ -25,14 +24,17 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() || hc.launched) and limits_manager.can_jump():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and limits_manager.can_jump():
 		limits_manager.use_jump()
 		velocity.y += JUMP_VELOCITY
-		hc.retract()
-
+		
+		#if hook is not null, it should be retracted if the player jumps
+		if hc != null:
+			hc.retract()
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = lerp(velocity.x, SPEED * direction, ACCELERATION)
 		animated_sprite.flip_h = direction < 0
