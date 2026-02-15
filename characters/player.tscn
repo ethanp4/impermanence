@@ -36,7 +36,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_n8jd0")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.77798873
+frame_progress = 0.47620153
 
 [node name="HookController" type="Node2D" parent="." unique_id=1213476828]
 script = ExtResource("5_6t23p")

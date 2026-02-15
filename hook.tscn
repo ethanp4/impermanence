@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://2p3frr2vt0q2"]
 
 [ext_resource type="Texture2D" uid="uid://cvrequyg5qty4" path="res://assets/Chain.png" id="1_n13h4"]
-[ext_resource type="Script" uid="uid://d0h7ul5cfj64t" path="res://player.gd" id="1_s2l5x"]
-[ext_resource type="Script" uid="uid://cu616ef88klmr" path="res://pivot.gd" id="1_xfyhh"]
 [ext_resource type="Texture2D" uid="uid://o55m4aseb56j" path="res://icon.svg" id="2_d4j0s"]
-[ext_resource type="Script" uid="uid://cbbafa0iscoif" path="res://hook.gd" id="2_xfyhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xfyhh"]
 size = Vector2(126, 125)
@@ -26,7 +23,6 @@ shape = SubResource("RectangleShape2D_xfyhh")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=841684471]
 position = Vector2(466, 331)
-script = ExtResource("1_s2l5x")
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1985857961]
 position = Vector2(-2, 2)
@@ -38,7 +34,6 @@ shape = SubResource("RectangleShape2D_s2l5x")
 
 [node name="pivot" type="Node2D" parent="player" unique_id=406652265]
 position = Vector2(-5, -7)
-script = ExtResource("1_xfyhh")
 
 [node name="chain" type="Sprite2D" parent="player/pivot" unique_id=308104554]
 texture_repeat = 2
@@ -46,10 +41,7 @@ rotation = -1.5707964
 texture = ExtResource("1_n13h4")
 region_enabled = true
 region_rect = Rect2(-1.335, -0.584, 34.667, 0)
-script = ExtResource("2_xfyhh")
 
 [node name="RayCast2D" type="RayCast2D" parent="player/pivot/chain" unique_id=826464927]
 position = Vector2(-12, 0)
 target_position = Vector2(0, 250)
-
-[connection signal="hooked" from="player/pivot/chain" to="player" method="_on_chain_hooked"]

@@ -6,12 +6,14 @@ extends Node2D
 
 @onready var player := get_parent()
 @onready var ray := $Hook
+@onready var rope := $Rope
 
 var launched = false
 var target: Vector2
 
 func _process(delta):
 	ray.look_at(get_global_mouse_position())
+	
 	if Input.is_action_just_pressed("Hook"):
 		launch()
 	if Input.is_action_just_released("Hook"):
@@ -40,9 +42,13 @@ func handle_grapple(delta):
 		var spring_force_magnitude = stiffness * displacement
 		var spring_force = target_dir * spring_force_magnitude
 		
-		var vel_dot = player.velocity.dot(target)
+		var vel_dot = player.velocity.dot(target_dir)
 		var damping = -damping * vel_dot * target_dir
 		
 		force = spring_force * damping
 		
 	player.velocity += force * delta
+	update_rope()
+	
+func update_rope():
+	rope.set_point_position(1, to_local(target))
