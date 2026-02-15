@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://c26s6i0qumpbm" path="res://art/tiles/inferno/platformer/Ground-Additional_03.png" id="30_yx6rh"]
 [ext_resource type="Texture2D" uid="uid://c11w8kd1vokun" path="res://art/tiles/inferno/platformer/Ground-Additional_04.png" id="31_kklod"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3612o"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bi44y"]
 texture = ExtResource("2_5xpsa")
 texture_region_size = Vector2i(128, 128)
@@ -146,6 +148,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("25_p6dnf")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66, -60, -65, 62, 62, 64, 63, -61)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5xpsa"]
 texture = ExtResource("24_sgfng")
@@ -197,6 +200,7 @@ texture_region_size = Vector2i(320, 320)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mrr1r"]
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bi44y")
 sources/1 = SubResource("TileSetAtlasSource_60joo")
 sources/2 = SubResource("TileSetAtlasSource_yx3bc")
@@ -241,13 +245,14 @@ texture = ExtResource("1_7fu2r")
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=906981613]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=173776360]
+shape = SubResource("CapsuleShape2D_3612o")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=310475470]
 zoom = Vector2(0.5, 0.5)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=266055011]
+[node name="Deathzone" type="Area2D" parent="." unique_id=266055011]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=941408481]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone" unique_id=941408481]
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=407847300]
 texture_filter = 1
