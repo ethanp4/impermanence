@@ -6,7 +6,8 @@ const ACCELERATION = 0.1
 const DECELERATION = 0.1
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var hc := $HookController
+@onready var hc := $HookController2
+
 
 var limits_manager: Node
 

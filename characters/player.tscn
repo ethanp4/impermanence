@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://docj2lr5r0ow8" path="res://assets/Character/Sprites/Idle/Idle-PC-01.png" id="2_evndh"]
 [ext_resource type="Texture2D" uid="uid://bg1pfwbcmr3oh" path="res://assets/Character/Sprites/Idle/Idle-PC-02.png" id="3_h1q25"]
 [ext_resource type="Texture2D" uid="uid://buxe2w26nww8h" path="res://assets/Character/Sprites/Idle/Idle-PC-03.png" id="4_j31ep"]
-[ext_resource type="Script" uid="uid://crmawx11217v8" path="res://characters/hook_controller.gd" id="5_6t23p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
 
@@ -37,13 +36,3 @@ sprite_frames = SubResource("SpriteFrames_n8jd0")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.47620153
-
-[node name="HookController" type="Node2D" parent="." unique_id=1213476828]
-script = ExtResource("5_6t23p")
-
-[node name="Hook" type="RayCast2D" parent="HookController" unique_id=1667449498]
-target_position = Vector2(800, 0)
-
-[node name="Rope" type="Line2D" parent="HookController" unique_id=1015144339]
-points = PackedVector2Array(0, 0, 0, 0)
-default_color = Color(0, 0, 0, 1)

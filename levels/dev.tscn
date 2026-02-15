@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7en60bs72j2r" path="res://ui/LimitsUI.tscn" id="1_8etgp"]
 [ext_resource type="PackedScene" uid="uid://b4ca57qxjb42u" path="res://characters/player.tscn" id="1_g3ky8"]
 [ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="1_x8peg"]
+[ext_resource type="PackedScene" uid="uid://bi4yoxtv7fpe8" path="res://characters/hook_controller.tscn" id="4_hqxoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ky8"]
 size = Vector2(514, 64)
@@ -18,6 +19,8 @@ position = Vector2(-1, 0)
 
 [node name="PlayerModel" parent="." unique_id=1740804725 instance=ExtResource("1_g3ky8")]
 position = Vector2(-8, 156)
+
+[node name="HookController2" parent="PlayerModel" unique_id=443857655 instance=ExtResource("4_hqxoo")]
 
 [node name="CollisonShapePlayer" type="CollisionShape2D" parent="PlayerModel" unique_id=2112278029]
 
