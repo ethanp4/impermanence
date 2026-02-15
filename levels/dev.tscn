@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="1_x8peg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3ky8"]
-size = Vector2(126, 18)
+size = Vector2(514, 64)
 
 [node name="Dev" type="Node2D" unique_id=733197858]
+position = Vector2(-1, 0)
 
 [node name="LimitsManager" parent="." unique_id=1015552723 instance=ExtResource("1_x8peg")]
 
@@ -16,7 +17,7 @@ size = Vector2(126, 18)
 [node name="LimitsUi" parent="CanvasLayer" unique_id=772122257 instance=ExtResource("1_8etgp")]
 
 [node name="PlayerModel" parent="." unique_id=1740804725 instance=ExtResource("1_g3ky8")]
-position = Vector2(450, 275)
+position = Vector2(-8, 156)
 
 [node name="CollisonShapePlayer" type="CollisionShape2D" parent="PlayerModel" unique_id=2112278029]
 
@@ -26,8 +27,12 @@ position = Vector2(450, 275)
 
 [node name="Raycast" type="Node2D" parent="PlayerModel" unique_id=2036535472]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=125355512]
+[node name="walls" type="StaticBody2D" parent="." unique_id=125355512]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1878366638]
-position = Vector2(452, 329)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls" unique_id=1878366638]
+position = Vector2(167, 276)
+shape = SubResource("RectangleShape2D_g3ky8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls" unique_id=146860855]
+position = Vector2(850, 454)
 shape = SubResource("RectangleShape2D_g3ky8")

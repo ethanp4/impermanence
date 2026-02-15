@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var rest_length = 2.0
-@export var stiffness = 10.0
-@export var damping = 2.0
+@export var rest_length = 200.0
+@export var stiffness = 15.0
+@export var damping = 1.0
 
 @onready var player := get_parent()
 @onready var ray := $Hook
@@ -26,9 +26,11 @@ func launch():
 	if ray.is_colliding():
 		launched = true
 		target = ray.get_collision_point()
+		rope.show()
 		
 func retract():
 	launched = false
+	rope.hide()
 	
 func handle_grapple(delta):
 	var target_dir = player.global_position.direction_to(target)
@@ -45,7 +47,7 @@ func handle_grapple(delta):
 		var vel_dot = player.velocity.dot(target_dir)
 		var damping = -damping * vel_dot * target_dir
 		
-		force = spring_force * damping
+		force = spring_force + damping
 		
 	player.velocity += force * delta
 	update_rope()
