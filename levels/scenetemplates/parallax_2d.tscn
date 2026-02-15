@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bq3u4tanoeuhp"]
+
+[ext_resource type="Texture2D" uid="uid://d00bgut0dbr64" path="res://art/tiles/inferno/background/Background_01.png" id="1_8aqaq"]
+
+[node name="Parallax2D" type="Parallax2D" unique_id=1796530955]
+show_behind_parent = true
+texture_repeat = 2
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(1334, 1500)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=113779454]
+texture = ExtResource("1_8aqaq")
+centered = false
+
+[node name="Sprite2D_mirror" type="Sprite2D" parent="." unique_id=1253882469]
+scale = Vector2(1, -1)
+texture = ExtResource("1_8aqaq")
+centered = false
