@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://be6ylkwa6r8id"]
+
+[ext_resource type="Texture2D" uid="uid://by088a6oxywwb" path="res://assets/dynamite-Sheet.png" id="1_rdb1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipmmk"]
+atlas = ExtResource("1_rdb1f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcumo"]
+atlas = ExtResource("1_rdb1f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56www"]
+atlas = ExtResource("1_rdb1f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vrju"]
+atlas = ExtResource("1_rdb1f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_615iu"]
+atlas = ExtResource("1_rdb1f")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syhg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipmmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcumo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56www")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vrju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_615iu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdb1f"]
+
+[node name="Explosive" type="RigidBody2D" unique_id=594141982]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1000192203]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_syhg2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1231482085]
+shape = SubResource("CircleShape2D_rdb1f")

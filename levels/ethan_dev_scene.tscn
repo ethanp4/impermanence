@@ -3,23 +3,27 @@
 [ext_resource type="PackedScene" uid="uid://b4ca57qxjb42u" path="res://characters/player.tscn" id="1_jdob2"]
 [ext_resource type="PackedScene" uid="uid://7en60bs72j2r" path="res://ui/LimitsUI.tscn" id="2_dojry"]
 [ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="2_iildp"]
+[ext_resource type="PackedScene" uid="uid://dsg13nw5g6jxq" path="res://implements/bomb_tool.tscn" id="3_iildp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dojry"]
-distance = -525.13
 
 [node name="EthanDevScene" type="Node2D" unique_id=1848891864]
 
 [node name="LimitsManager" parent="." unique_id=578021829 instance=ExtResource("2_iildp")]
 
 [node name="CharacterBody2D" parent="." unique_id=1740804725 instance=ExtResource("1_jdob2")]
-position = Vector2(433, 241)
+position = Vector2(507, 366)
+
+[node name="Bomb" parent="CharacterBody2D" unique_id=1529174443 instance=ExtResource("3_iildp")]
+throw_speed = 800.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=531194550]
 
 [node name="LimitsUi" parent="CanvasLayer" unique_id=1964063260 instance=ExtResource("2_dojry")]
+metadata/_edit_use_anchors_ = true
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1558147368]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=230675057]
-position = Vector2(580, 0)
+position = Vector2(0, 497)
 shape = SubResource("WorldBoundaryShape2D_dojry")
