@@ -6,8 +6,8 @@ extends Node2D
 @export var hook_extend_speed = 1000.0
 
 @onready var player := get_parent()
-@onready var ray := $Hook
-@onready var rope := $Rope
+@onready var ray : RayCast2D = $Hook
+@onready var rope : Line2D = $Rope
 
 
 var launched = false

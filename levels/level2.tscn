@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://pa0sxwyhrlmr"]
 
 [ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="1_3noyy"]
+[ext_resource type="PackedScene" uid="uid://7en60bs72j2r" path="res://ui/LimitsUI.tscn" id="2_if8ei"]
 [ext_resource type="Texture2D" uid="uid://d00bgut0dbr64" path="res://art/tiles/inferno/background/Background_01.png" id="2_pi0ug"]
 [ext_resource type="Script" uid="uid://ds0m1u2ymr1gj" path="res://characters/player.gd" id="3_8men3"]
 [ext_resource type="Texture2D" uid="uid://docj2lr5r0ow8" path="res://assets/Character/Sprites/Idle/Idle-PC-01.png" id="4_44524"]
@@ -1544,6 +1545,10 @@ height = 120.0
 [node name="Level2" type="Node2D" unique_id=1709255253]
 
 [node name="LimitsManager" parent="." unique_id=1015552723 instance=ExtResource("1_3noyy")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1906608674]
+
+[node name="LimitsUi" parent="CanvasLayer" unique_id=772122257 instance=ExtResource("2_if8ei")]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=572717606]
 show_behind_parent = true
