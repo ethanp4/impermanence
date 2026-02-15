@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://c0pv7gmowl0j"]
+[gd_scene format=4 uid="uid://c0pv7gmowl0j"]
 
-[ext_resource type="Texture2D" uid="uid://d00bgut0dbr64" path="res://art/tiles/inferno/background/Background_01.png" id="1_7fu2r"]
 [ext_resource type="PackedScene" uid="uid://d2vbbgvit8dq1" path="res://controllers/LimitsManager.tscn" id="1_c124c"]
 [ext_resource type="Texture2D" uid="uid://cyk644mjfrq12" path="res://art/tiles/inferno/platformer/Bonus.png" id="2_5xpsa"]
+[ext_resource type="PackedScene" uid="uid://bq3u4tanoeuhp" path="res://levels/scenetemplates/parallax_2d.tscn" id="2_c124c"]
 [ext_resource type="Script" uid="uid://ds0m1u2ymr1gj" path="res://characters/player.gd" id="2_sqx3p"]
 [ext_resource type="Texture2D" uid="uid://docj2lr5r0ow8" path="res://assets/Character/Sprites/Idle/Idle-PC-01.png" id="3_c124c"]
 [ext_resource type="Texture2D" uid="uid://co522gp1rp2j" path="res://art/tiles/inferno/platformer/Brick_01.png" id="3_yn1es"]
@@ -68,6 +68,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("3_yn1es")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -63, -62, 64, 62, 62, 62, -64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k62iv"]
 texture = ExtResource("4_3612o")
@@ -108,6 +109,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("11_3bikl")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -64, 65, -64, 66, 62, -63, 62)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aimmd"]
 texture = ExtResource("12_m1ihp")
@@ -128,6 +130,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("15_ef3fr")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-14, 62, -16, 47, -29, 31, -32, 4, -24, -11, -24, -38, -18, -44, -14, -64, 64, -64, 63, 63)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k68jh"]
 texture = ExtResource("16_www5i")
@@ -148,6 +151,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("19_v0nts")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.785545, -63.78555, 12.4184265, -63.221077, 15.240799, -44.593437, 23.707905, -39.513172, 24.27238, -11.8539505, 30.48159, 0.5644722, 29.917118, 33.86843, 13.547379, 44.593433, 12.4184265, 63.78555, -64.35002, 62.6566)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wim1"]
 texture = ExtResource("20_7vben")
@@ -261,21 +265,7 @@ sources/34 = SubResource("TileSetAtlasSource_3612o")
 
 [node name="LimitsManager" parent="." unique_id=1015552723 instance=ExtResource("1_c124c")]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1735416077]
-show_behind_parent = true
-texture_repeat = 2
-scroll_scale = Vector2(0.5, 0.5)
-repeat_size = Vector2(1334, 1500)
-repeat_times = 5
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1996800539]
-texture = ExtResource("1_7fu2r")
-centered = false
-
-[node name="Sprite2D_mirror" type="Sprite2D" parent="Parallax2D" unique_id=1316641242]
-scale = Vector2(1, -1)
-texture = ExtResource("1_7fu2r")
-centered = false
+[node name="Parallax2D" parent="." unique_id=1796530955 instance=ExtResource("2_c124c")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1110269183]
 position = Vector2(30, -63)
@@ -287,7 +277,7 @@ script = ExtResource("2_sqx3p")
 shape = SubResource("CapsuleShape2D_3612o")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=310475470]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.4, 0.4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1777710084]
 texture_filter = 1
@@ -307,5 +297,5 @@ target_position = Vector2(800, 0)
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=407847300]
 texture_filter = 1
-tile_map_data = PackedByteArray(0, 0, 4, 0, 3, 0, 30, 0, 0, 0, 0, 0, 0, 0, 12, 0, 3, 0, 30, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAEAAMAHgAAAAAAAAAMAAMAHgAAAAAAAAAUAAMAHgAAAAAAAAAcAAMAHgAAAAAAAAAkAAMAHgAAAAAAAAA0ABMAHgAAAAAAAAA8ABMAHgAAAAAAAABEABMAHgAAAAAAAABMABMAHgAAAAAAAABEAOz/HgAAAAAAAABMAOz/HgAAAAAAAABUAOz/HgAAAAAAAABcAOz/HgAAAAAAAAD8/wMAHgAAAAAAAAD0/wMAHgAAAAAAAADs/wMAHgAAAAAAAAC+//L/HgAAAAAAAADG//L/HgAAAAAAAADO//L/HgAAAAAAAADJ/yAAHgAAAAAAAADR/yAAHgAAAAAAAADZ/yAAHgAAAAAAAADh/yAAHgAAAAAAAAByAOz/HgAAAAAAAAB6AOz/HgAAAAAAAACCAOz/HgAAAAAAAACUAOf/HgAAAAAAAACcAOf/HgAAAAAAAACkAOf/HgAAAAAAAABOADUAHgAAAAAAAABWADUAHgAAAAAAAABeADUAHgAAAAAAAABGADUAHgAAAAAAAAA+ADUAHgAAAAAAAAA2ADUAHgAAAAAAAABmADUAHgAAAAAAAABuADUAHgAAAAAAAAB2ADUAHgAAAAAAAAB+ADUAHgAAAAAAAACGADUAHgAAAAAAAACOADUAHgAAAAAAAACWADUAHgAAAAAAAACeADUAHgAAAAAAAACmADUAHgAAAAAAAACuADUAHgAAAAAAAAB7AC4AAQAAAAAAAAB7ACcAAQAAAAAAAAB7ACAAAQAAAAAAAAB4ABkAFQAAAAAAAAB6ABEAFQAAAAAAAACCABEAHgAAAAAAAACKABEAHgAAAAAAAACSABEAHgAAAAAAAACaABEAHgAAAAAAAACAABkAGQAAAAAAAACiABEAGQAAAAAAAACkABkAGQAAAAAAAACcABkAFQAAAAAAAACgACAAAQAAAAAAAACgACcAAQAAAAAAAACgAC4AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_mrr1r")
