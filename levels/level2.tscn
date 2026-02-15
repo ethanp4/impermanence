@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://docj2lr5r0ow8" path="res://assets/Character/Sprites/Idle/Idle-PC-01.png" id="4_44524"]
 [ext_resource type="Texture2D" uid="uid://bg1pfwbcmr3oh" path="res://assets/Character/Sprites/Idle/Idle-PC-02.png" id="5_pfs2t"]
 [ext_resource type="Texture2D" uid="uid://buxe2w26nww8h" path="res://assets/Character/Sprites/Idle/Idle-PC-03.png" id="6_hgqp7"]
-[ext_resource type="Script" uid="uid://crmawx11217v8" path="res://characters/hook_controller.gd" id="7_kw31j"]
+[ext_resource type="PackedScene" uid="uid://bi4yoxtv7fpe8" path="res://characters/hook_controller.tscn" id="7_pjln3"]
 [ext_resource type="Texture2D" uid="uid://cyk644mjfrq12" path="res://art/tiles/inferno/platformer/Bonus.png" id="8_t8rdg"]
 [ext_resource type="Texture2D" uid="uid://co522gp1rp2j" path="res://art/tiles/inferno/platformer/Brick_01.png" id="9_uothi"]
 [ext_resource type="Texture2D" uid="uid://djy7xne66lrdr" path="res://art/tiles/inferno/platformer/Ground-Additional_05.png" id="10_eu64a"]
@@ -1784,11 +1784,7 @@ sprite_frames = SubResource("SpriteFrames_50cqb")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="HookController" type="Node2D" parent="CharacterBody2D" unique_id=938032877]
-script = ExtResource("7_kw31j")
-
-[node name="Hook" type="RayCast2D" parent="CharacterBody2D/HookController" unique_id=336228050]
-target_position = Vector2(800, 0)
+[node name="HookController2" parent="CharacterBody2D" unique_id=443857655 instance=ExtResource("7_pjln3")]
 
 [node name="Deathzone" type="Area2D" parent="." unique_id=794898167]
 
@@ -1796,7 +1792,7 @@ target_position = Vector2(800, 0)
 
 [node name="TileMapGround" type="TileMapLayer" parent="." unique_id=1201500849]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAEAAMAHgAAAAAAAAAMAAMAHgAAAAAAAAAKABAADAAAAAAAAAAeABAADAAAAAAAAAD2/xAADAAAAAAAAAAyABAADAAAAAAAAABFABAADAAAAAAAAADi/xAADAAAAAAAAAD8/wMAFgAAAAAAAAAUAAMAGAAAAAAAAAA4APP/GAAAAAAAAAA5APP/GAAAAAAAAAAwAPP/FgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAAMAHgAAAAAAAAAMAAMAHgAAAAAAAAAKABAADAAAAAAAAAAeABAADAAAAAAAAAD2/xAADAAAAAAAAAAyABAADAAAAAAAAABFABAADAAAAAAAAADi/xAADAAAAAAAAAD8/wMAFgAAAAAAAAAUAAMAGAAAAAAAAAA4APP/GAAAAAAAAAA5APP/GAAAAAAAAAAwAPP/FgAAAAAAAAAaAPP/HgAAAAAAAAAiAPP/HgAAAAAAAAA=")
 tile_set = SubResource("TileSet_noww6")
 
 [node name="TileMapEnv" type="TileMapLayer" parent="." unique_id=1965197914]
