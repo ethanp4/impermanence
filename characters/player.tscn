@@ -36,10 +36,14 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_n8jd0")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.31381303
+frame_progress = 0.77798873
 
 [node name="HookController" type="Node2D" parent="." unique_id=1213476828]
 script = ExtResource("5_6t23p")
 
 [node name="Hook" type="RayCast2D" parent="HookController" unique_id=1667449498]
 target_position = Vector2(800, 0)
+
+[node name="Rope" type="Line2D" parent="HookController" unique_id=1015144339]
+points = PackedVector2Array(0, 0, 0, 0)
+default_color = Color(0, 0, 0, 1)
