@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="impermanence"
-run/main_scene="uid://dae01hy6vt3wf"
+run/main_scene="uid://bly1m3iv2h7hu"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bly1m3iv2h7hu"]
+
+[ext_resource type="Script" uid="uid://bdka41pas0n3w" path="res://TitleScreen.gd" id="1_7xhpk"]
+[ext_resource type="Texture2D" uid="uid://hul7t0snbgdh" path="res://art/Title_Screen.png" id="2_bor1v"]
+
+[node name="TitleScreen" type="Control" unique_id=1751772425]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7xhpk")
+
+[node name="StartButton" type="Button" parent="." unique_id=691054294]
+z_index = 10
+layout_mode = 0
+offset_left = 447.0
+offset_top = 407.0
+offset_right = 657.0
+offset_bottom = 465.0
+text = "START"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2043203009]
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_bor1v")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
