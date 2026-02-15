@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bg1pfwbcmr3oh" path="res://assets/Character/Sprites/Idle/Idle-PC-02.png" id="4_poyfc"]
 [ext_resource type="Texture2D" uid="uid://becwbfkbfu6ap" path="res://art/tiles/inferno/platformer/Ground-Additional_06.png" id="5_cnn1a"]
 [ext_resource type="Texture2D" uid="uid://buxe2w26nww8h" path="res://assets/Character/Sprites/Idle/Idle-PC-03.png" id="5_r8rrl"]
-[ext_resource type="Script" path="res://characters/hook_controller.gd" id="6_1o3wi"]
+[ext_resource type="Script" uid="uid://crmawx11217v8" path="res://characters/hook_controller.gd" id="6_1o3wi"]
 [ext_resource type="Texture2D" uid="uid://c7qnngxpivgx0" path="res://art/tiles/inferno/platformer/Ground-Additional_07.png" id="6_sqx3p"]
 [ext_resource type="Texture2D" uid="uid://b20giccpjah3e" path="res://art/tiles/inferno/platformer/Ground_01.png" id="7_c124c"]
 [ext_resource type="Texture2D" uid="uid://b0i1egswsouda" path="res://art/tiles/inferno/platformer/Ground_03.png" id="8_poyfc"]
@@ -265,7 +265,7 @@ show_behind_parent = true
 texture = ExtResource("1_7fu2r")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1110269183]
-position = Vector2(30, -63)
+position = Vector2(-320, -7)
 script = ExtResource("2_sqx3p")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=906981613]

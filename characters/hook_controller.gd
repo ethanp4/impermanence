@@ -8,12 +8,16 @@ extends Node2D
 @onready var player := get_parent()
 @onready var ray := $Hook
 @onready var rope := $Rope
+@onready var hook_head := $HookHead
 
 
 var launched = false
 var extending = false
 var target: Vector2
 var rope_tween: Tween
+
+func _ready():
+	hook_head.hide()
 
 func _process(delta):
 	ray.look_at(get_global_mouse_position())
@@ -34,9 +38,13 @@ func launch():
 		launched = true
 		target = ray.get_collision_point()
 		rope.show()
+		hook_head.show()
 		
 		rope.set_point_position(0, Vector2.ZERO)
 		rope.set_point_position(1, Vector2.ZERO)
+		hook_head.position = Vector2.ZERO
+		
+		hook_head.look_at(target)
 		
 		extending = true
 		var distance = global_position.distance_to(target)
@@ -46,7 +54,9 @@ func launch():
 			rope_tween.kill()
 			
 		rope_tween = create_tween()
+		rope_tween.set_parallel(true)
 		rope_tween.tween_method(animate_hook_ext, 0.0, 1.0, duration)
+		rope_tween.tween_property(hook_head,"position", to_local(target), duration).from(Vector2.ZERO)
 		rope_tween.finished.connect(func():
 			extending = false
 			launched = true
@@ -62,6 +72,7 @@ func retract():
 	if rope_tween:
 		rope_tween.kill()
 	rope.hide()
+	hook_head.hide()
 	
 func handle_grapple(delta):
 	var target_dir = player.global_position.direction_to(target)
@@ -85,3 +96,4 @@ func handle_grapple(delta):
 	
 func update_rope():
 	rope.set_point_position(1, to_local(target))
+	hook_head.position = to_local(target)
