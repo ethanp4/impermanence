@@ -42,7 +42,7 @@ func handle_grapple(delta):
 		var spring_force_magnitude = stiffness * displacement
 		var spring_force = target_dir * spring_force_magnitude
 		
-		var vel_dot = player.velocity.dot(target)
+		var vel_dot = player.velocity.dot(target_dir)
 		var damping = -damping * vel_dot * target_dir
 		
 		force = spring_force * damping
