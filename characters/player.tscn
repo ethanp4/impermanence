@@ -1,11 +1,45 @@
 [gd_scene format=3 uid="uid://b4ca57qxjb42u"]
 
 [ext_resource type="Script" uid="uid://ds0m1u2ymr1gj" path="res://characters/player.gd" id="1_dnjla"]
+[ext_resource type="Texture2D" uid="uid://docj2lr5r0ow8" path="res://assets/Character/Sprites/Idle/Idle-PC-01.png" id="2_evndh"]
+[ext_resource type="Texture2D" uid="uid://bg1pfwbcmr3oh" path="res://assets/Character/Sprites/Idle/Idle-PC-02.png" id="3_h1q25"]
+[ext_resource type="Texture2D" uid="uid://buxe2w26nww8h" path="res://assets/Character/Sprites/Idle/Idle-PC-03.png" id="4_j31ep"]
+[ext_resource type="Script" uid="uid://crmawx11217v8" path="res://characters/hook_controller.gd" id="5_6t23p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1740804725]
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8jd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_evndh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h1q25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j31ep")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1740804725]
 script = ExtResource("1_dnjla")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838700957]
 shape = SubResource("CapsuleShape2D_sh265")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=55822367]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_n8jd0")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.31381303
+
+[node name="HookController" type="Node2D" parent="." unique_id=1213476828]
+script = ExtResource("5_6t23p")
+
+[node name="Hook" type="RayCast2D" parent="HookController" unique_id=1667449498]
+target_position = Vector2(800, 0)
